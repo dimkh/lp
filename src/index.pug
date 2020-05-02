@@ -69,9 +69,9 @@ html(lang="en")
 
       section.values-section
         section.triangles.values-section__triangles
-          svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.triangle
+          svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.triangle.triangle-left
             polygon(points="0,0 0,100 1000,100")
-          svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.triangle
+          svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.triangle.triangle-right
             polygon(points="1000,0 1000,100 0,100")
 
         .backpack
@@ -106,8 +106,39 @@ html(lang="en")
                                 stop(offset="0%" stop-color="#9300e8")
                                 stop(offset="100%" stop-color="#4a00ed")
 
+      section.works
+        .container.container--works
+          h2.section-title.works__title Мои работы
+          .works__row
+            .works__col.works__col-left
+              .works__slider
+                +image("content/1.jpg", "works__img")
+                .works__control
+                  ul.works__pagination
+                    - for (var i = 0; i < 4; i++)
+                      li.works__pagination-item
+                        +image(`content/${i+1}.jpg`, "works__pagination-img")
+                .works__arrows
+                  button.works__arrow.works__arrow-down(type="button") &lt;
+                  button.works__arrow.works__arrow-up(type="button") &lt;
+            .works__col.works__col-right
+              .works__right-num 4
+              .works__right-row
+                - var tags = ["HTML", "CSS", "Javascript"];
+                ul.works__tags
+                  each tag in tags
+                    li.works__tag #{tag}
+                .works__right-col
+                  h3.section-title.works__title-h3 Сайт школы образования
+                  .works__text
+                    p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                  a(href="https://www.google.com").works__link
+                    +icon("link", "works__link-icon", "#586ed3")
+                    span.works__link-text Посмотреть сайт
 
-
+      section.talks
+        .container.container--talks
+          h2.section-title Что обо мне говорят
 
 
 
