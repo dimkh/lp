@@ -1,9 +1,5 @@
-.skill__circle {
-  width: 130px;
-  height: 130px;
-  fill: transparent;
-  stroke: red;
-  stroke-width: 4px;
+.skills-row {
+  margin-bottom: 30px;
 }
 
 .skills-row__title {
@@ -14,4 +10,30 @@
 
 .skills-row__list {
   display: flex;
-} 
+  list-style: none;
+}
+
+.skills-row__item {
+  margin-right: 60px;
+  position: relative;
+}
+
+// .circle__icon {
+//   stroke-width: 20px;
+// }
+
+.circle__icon--under {
+  stroke-width: 10px;
+}
+
+.circle__icon--above {
+  stroke-dasharray: 314;
+  stroke-width: 20px;
+}
+
+.skill__title  {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
