@@ -45,7 +45,7 @@ html(lang="en")
                 .user-info
                   .user-info__avatar
                     .avatar
-                      +image("content/user.jpg", "avatar__img")
+                      +image("content/myphoto.jpg", "avatar__img")
                   .user-info__content
                     -
                       var userdata = [
@@ -119,8 +119,8 @@ html(lang="en")
                       li.works__pagination-item
                         +image(`content/${i+1}.jpg`, "works__pagination-img")
                 .works__arrows
-                  button.works__arrow.works__arrow-down(type="button") &lt;
-                  button.works__arrow.works__arrow-up(type="button") &lt;
+                  button.works__arrow.works__arrow--down(type="button") &lt;
+                  button.works__arrow.works__arrow--up(type="button") &lt;
             .works__col.works__col-right
               .works__right-num 4
               .works__right-row
@@ -138,128 +138,43 @@ html(lang="en")
 
       section.talks
         .container.container--talks
-          h2.section-title Что обо мне говорят
+          .talks__block
+            .talks__header
+              h2.section-title.talks__title Что обо мне говорят
+              .talks__arrows
+                button.talks__arrow.talks__arrow--left(type="button") &lt;
+                button.talks__arrow.talks__arrow--right(type="button") &gt;
+            .talks__slider
+              -
+                var feeders = [
+                  {text: "Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!",
+                  name: "Ковальчук Дмитрий", position: "Основатель Loftschool", photo: "feed1.jpg"},
+                  {text: "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах",
+                  name: "Владимир Сабанцев", position: "Преподаватель", photo: "feed2.jpg"},
+                  {text: "Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!",
+                  name: "222 Ковальчук Дмитрий", position: "Основатель Loftschool", photo: "feed1.jpg"},
+                  {text: "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах",
+                  name: "222 Владимир Сабанцев", position: "Преподаватель", photo: "feed2.jpg"},
+                  {text: "Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!",
+                  name: "333 Ковальчук Дмитрий", position: "Основатель Loftschool", photo: "feed1.jpg"},
+                  {text: "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах",
+                  name: "333 Владимир Сабанцев", position: "Преподаватель", photo: "feed2.jpg"}
+                ];
+              ul.talks__list
+                each feed in feeders
+                  li.talks__slide
+                    .talks__text
+                      .talks__text-quote
+                        +icon("quote", "talks__quote-img")
+                      p #{feed.text}
+                    .talks__feeder
+                      .talks__feeder-photo
+                        +image(`content/${feed.photo}`, "talks__photo-img")
+                      .talks__feeder-info
+                        h3.talks__feeder-name #{feed.name}
+                        .talks__feeder-position #{feed.position}
+          .feedback
+            h2.section-title.feedback__title Связаться со мной
+            form#feedback-form.feedback__form
 
-
-
-
-
-
-      //- .welcome-section
-      //-   section.hero
-      //-     .container.hero__container
-      //-       header.header.hero__header
-      //-         .hero__logo
-      //-           .logo BA
-      //-         .hero__menu
-      //-           - var icons = ['insta', 'vk', 'github']
-      //-           ul.socials
-      //-             each item, index in icons
-      //-               li.socials__item(class=`${index === 1 ? 'active' : ''}`)
-      //-                 a(href="").socials__link
-      //-                   +icon(`${item}`, 'socials__icon')
-
-      //-         .hero__links
-      //-           nav.nav
-      //-             - var menu = ['Главная', "Обо мне", "Навыки", "Работы"]
-      //-             ul.nav__list
-      //-               each item in menu
-      //-                 li.nav__item
-      //-                   a(href="").nav__link #{item}
-      //-       .hero__content
-      //-         .user-info
-      //-           h1.user-info__desc Личный сайт...
-      //-           .user-info__username Владимир Астаханов
-
-      //-       .hero__btns
-      //-         .scroll-down-btns Скроллить
-
-      //-   section.about
-      //-     .container.about__container
-      //-       .about__left
-      //-         .user
-      //-           .avatar.user__avatar
-      //-             +image("content/user.jpg", "avatar__pic")
-      //-           ul.user__desc
-      //-             -
-      //-               var items = [
-      //-                 ['Проживаю', 'Новосибирск'],
-      //-                 ['Возраст', '13'],
-      //-                 ['Родлся', 'Новосибирск'],
-      //-               ]
-      //-             each item in items
-      //-               li.user__desc-item
-      //-                 .user__key #{item[0]}
-      //-                 .user__value #{item[1]}
-      //-       .about__right
-      //-         h4.about__prolog Привет
-      //-         h2.about__title Владимир Астаханов
-      //-         .about__text Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ad, facilis vero deleniti obcaecati iusto consequatur dolor fugit itaque cupiditate veniam porro maiores eaque voluptate inventore voluptatibus! Eos, dolor ad.
-      //-         .about__ps Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas similique ipsa laboriosam repellat exercitationem dolorum enim rem, asperiores debitis quaerat, a, vel in neque impedit magnam perferendis? Voluptatibus, quasi. Mollitia?
-
-      //- .triangles
-      //-   svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
-      //-     polygon(points="0,0 0,100 1000,100")
-      //-   svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
-      //-     polygon(points="0,100 1000,100 1000,0")
-
-
-      //- .values
-      //-   .container
-      //-     .values__title
-      //-       h2.section-title.values__title-text Чем я могу быть вам полезен
-      //-       .values__desc
-      //-         p Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa veniam earum cupiditate ut, soluta deleniti vel deserunt aliquid nisi nihil molestiae rerum nesciunt labore enim inventore ipsum, cum pariatur corporis.
-
-      //-   ul.user-skills
-      //-     .input
-      //-       input(type="text").input__elem
-      //-       .input__icon
-
-      //-     -
-      //-       var skills = [
-      //-         ['frontend', ['html', 'css', 'js']],
-      //-         ['workflow', ['git', 'terminal', 'gulp']],
-      //-       ]
-      //-     each item in skills
-      //-       li.user-skills__item.skills-row
-      //-         h3.skills-row__title #{item[0]}
-      //-         ul.skills-row__list
-      //-           each skill in item[1]
-      //-             li.skills-row__item
-      //-               .skill
-      //-                 svg(viewBox="0 0 200 200" preserveAspectRatio="none").skill__shape
-      //-                   circle(r="80" cx="100" cy="100").skill__circle.skill__circle--position--under
-      //-                   //- circle(r="80" cx="100" cy="100").skill__circle.skill__circle--position--above
-      //-                   linear-gradient()
-      //-                 .skill__title #{skill}
-
-      //- .works
-      //-   h2.section-title Мои работы
-      //-   .works__left
-      //-     .slider
-      //-       img().slider__fillpic
-      //-       .slider__preview
-      //-         ul.previews
-      //-           - for (var i = 0; i < 3; i++)
-      //-             li.previews__item
-      //-               img.previews__pic
-      //-       .slider__buttons
-      //-         .slider-button
-      //-           button.slider-buttons__item.slider-buttons__item--slide--prev 
-      //-           button.slider-buttons__item.slider-buttons__item--slide--next
-
-      //-   .works__right
-      //-     .works__tags
-      //-       - var tags = ['html', 'css', 'javascript']
-      //-       each tag in tags
-      //-         ul.tags
-      //-           li.tags__item #{tag}
-      //-     .works__text
-      //-       h3.works__title Сайт школы
-      //-       .works__desc-text
-      //-         p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam dolorum nulla placeat cumque nostrum commodi ad numquam dolores distinctio officiis molestiae, assumenda omnis ut voluptas itaque eligendi mollitia earum. Tenetur.
-      //-       a.iconed-link
-      //-         .iconed-link__icon
-      //-         .iconed-link__text
 

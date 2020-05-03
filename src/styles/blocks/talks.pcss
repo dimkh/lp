@@ -1,3 +1,121 @@
+.talks {
+  background: url("../images/content/budda.jpg") center center / cover no-repeat;
+}
+
 .container--talks {
   padding-top: 150px;
+}
+
+.talks__header {
+  padding-top: 150px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 70px;
+}
+
+.talks__title {
+  margin-right: 100px;
+}
+
+.talks__arrows {
+  position: relative;
+}
+
+.talks__arrow {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  margin-right: 30px;
+
+  &:hover {
+    color: #ff9a00;
+    border: 1px solid #ff9a00;
+  }
+}
+
+.talks__slider {
+  width: 60%;
+  margin-bottom: 100px;
+  overflow: hidden;
+}
+
+.talks__list {
+  display: flex;
+  justify-content: flex-start;
+  transition: 1.7s;
+}
+
+.talks__slide {
+  width: 48%;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: flex-end;
+
+  &:nth-child(2n+1) {
+    margin-right: 4%;
+  }
+}
+
+.talks__text {
+  margin-bottom: 30px;
+  line-height: 30px;
+  height: 120px;
+  overflow: hidden;
+  font-size: 16px;
+  color: #464d62;
+  opacity: 0.7;
+  display: flex;
+  flex-shrink: 0;
+
+  // &::before {
+  //   content: "";
+  //   width: 75px;
+  //   height: 63px;
+  //   display: block;
+  //   margin-right: 20px;
+  //   background: svg-load("quote.svg", fill=#000, width=100%, heigh=100%, preserveAspectRatio='none');
+  // }
+}
+
+.talks__quote-img {
+  width: 75px;
+  height: 63px;
+  display: block;
+  opacity: .05;
+  margin-right: 20px;
+}
+
+
+.talks__feeder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.talks__feeder-photo {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: 95px;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.talks__photo-img {
+  object-position: top;
+  width: 100%;
+}
+
+.talks__feeder-name {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 48px;
+}
+
+.talks__feeder-position {
+  font-weight: 400;
+  line-height: 30px;
+  opacity: .7;
 }
