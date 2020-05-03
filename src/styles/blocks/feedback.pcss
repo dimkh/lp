@@ -28,6 +28,43 @@
   font-weight: 700;
   line-height: 30px;
   padding: 15px 0 15px 50px;
+
+  &:focus {
+    outline: 0;
+    outline-offset: 0;
+    border-bottom: 2px solid #5500f2;
+  }
+
+  &:focus.feedback__name {
+    background: svg-load("user.svg", fill=#5500f2, fill-opacity="0.5", width=100%, heiht=100%) no-repeat;
+    background-size: 40px 40px;
+  }
+  &:focus.feedback__email {
+    background: svg-load("envelope.svg", fill=#5500f2, fill-opacity="0.5", width=100%, heiht=100%) no-repeat;
+    background-size: 40px 40px;
+  }
+  &:focus.feedback__input--ta {
+    background: svg-load("message.svg", fill=#5500f2, fill-opacity="0.5", width=100%, heiht=100%) no-repeat;
+    background-size: 40px 40px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    border-bottom: 2px solid #5500f2;
+  }
+
+  &:hover.feedback__name {
+    background: svg-load("user.svg", fill=#5500f2, fill-opacity="0.5", width=100%, heiht=100%) no-repeat;
+    background-size: 40px 40px;
+  }
+  &:hover.feedback__email {
+    background: svg-load("envelope.svg", fill=#5500f2, fill-opacity="0.5", width=100%, heiht=100%) no-repeat;
+    background-size: 40px 40px;
+  }
+  &:hover.feedback__input--ta {
+    background: svg-load("message.svg", fill=#5500f2, fill-opacity="0.5", width=100%, heiht=100%) no-repeat;
+    background-size: 40px 40px;
+  }
 }
 
 .feedback__input--ta {
@@ -60,7 +97,6 @@
 
 .feedback__btn {
   color: #fff;
-  // background-color: blue;
   transition: .7s;
   font-size: 18px;
   text-transform: uppercase;
