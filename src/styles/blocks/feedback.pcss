@@ -1,0 +1,72 @@
+.feedback__title {
+  font-size: 36px;
+  margin-bottom: 80px;
+}
+
+.feedback__form {
+  max-width: 50%;
+}
+
+.feedback__row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.feedback__lbl {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.feedback__input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #000;
+  color: #464d62;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 30px;
+  padding: 15px 0 15px 50px;
+}
+
+.feedback__input--ta {
+  resize: none;
+  line-height: 1.6;
+  padding-bottom: 0;
+  margin-bottom: 60px;
+  background: svg-load("message.svg", fill=$text-color, fill-opacity="0.5", width=100%, heiht=100%) no-repeat;
+  background-size: 40px 40px;
+}
+
+.feedback__name {
+  background: svg-load("user.svg", fill=$text-color, fill-opacity="0.5", width=100%, heiht=100%) no-repeat;
+  background-size: 40px 40px;
+}
+
+.feedback__email {
+  background: svg-load("envelope.svg", fill=$text-color, fill-opacity="0.5", width=100%, heiht=100%) no-repeat;
+  background-size: 40px 40px;
+}
+
+.feedback__input-title {
+  margin-bottom: 20px;
+  color: #464d62;
+  font-weight: 400;
+  line-height: 30px;
+  opacity: 0.7;
+  padding-left: 50px;
+}
+
+.feedback__btn {
+  color: #fff;
+  // background-color: blue;
+  transition: .7s;
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 35px 120px;
+  border-radius: 40px 5px;
+  font-weight: 700;
+  margin-bottom: 140px;
+  background-image: linear-gradient(to right, #9300e8 0%, #4a00ed 100%);
+}

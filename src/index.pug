@@ -137,6 +137,13 @@ html(lang="en")
                     span.works__link-text Посмотреть сайт
 
       section.talks
+        section.triangles.talks-section__triangles
+          svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.triangle.triangle-left
+            polygon(points="0,0 1000,0 1000,100")
+          svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.triangle.triangle-right
+            polygon(points="0,0 1000,0 0,100")
+
+
         .container.container--talks
           .talks__block
             .talks__header
@@ -176,5 +183,18 @@ html(lang="en")
           .feedback
             h2.section-title.feedback__title Связаться со мной
             form#feedback-form.feedback__form
+              .feedback__row
+                label.feedback__lbl
+                  span.feedback__input-title Введите ваше имя
+                  input#feedback-name.feedback__input.feedback__name(type="text" placeholder="Ковальчук Дмитрий")
+                label.feedback__lbl
+                  span.feedback__input-title Введите ваш email
+                  input#feedback-email.feedback__input.feedback__email(type="text" placeholder="loftschool@study.com")
+              .feedback__textarea
+                label.feedback__lbl
+                  span.feedback__input-title Сообщение к письму
+                  textarea#order-email.feedback__input.feedback__input--ta(placeholder="Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса")
+              button.feedback__btn(type="submit") Отправить
+
 
 
