@@ -17,17 +17,26 @@ html(lang="en")
                 .logo ДХ
               .header__btns
                 nav.menu
-                  - var items = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
+                  -
+                    var navItems = [
+                      {title: "Главная", href: "#main", id: "#main"},
+                      {title: "Обо мне", href: "#about"},
+                      {title: "Навыки", href: "#skills"},
+                      {title: "Работы", href: "#jobs"},
+                      {title: "Отзывы", href: "#feedbacks"},
+                      {title: "Связаться", href: "#link"}
+                    ];
                   ul.menu__list
-                    each item in items
-                      li.menu__item
-                        a.menu__link #{item}
+                    each navItem in navItems
+                      li.menu__item(class={active: `${navItem.id}` === `${navItem.href}`})
+                        a.menu__link(href=`${navItem.href}`) #{navItem.title}
+                        //- a.menu__link(href=`${navItem.href}` class={active: `${navItem.id}` === `${navItem.href}`}) #{navItem.title}
               .header__links
                 - var icons = ["insta", "vk", "github"];
                 ul.socials
                   each item in icons
                     li.socials__item
-                      a(href="").socials__link
+                      a(href="#").socials__link
                         +icon(item, "socials__icon")
             .hero__content
               .user-data
@@ -68,7 +77,7 @@ html(lang="en")
                   p Этот сайт я сделал в рамках обученя в Школе онлайн образования Loftschool. Чуть позже я освежу в нем свой контент. А пока посмотрите, как тут все классно и красиво!
 
       section.values-section
-        section.triangles.values-section__triangles
+        .triangles.values-section__triangles
           svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.triangle.triangle-left
             polygon(points="0,0 0,100 1000,100")
           svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.triangle.triangle-right
@@ -98,7 +107,7 @@ html(lang="en")
                       li.skills-row__item
                         .skill
                           .skill__title= cell
-                          svg(width="150"  height="150").circle
+                          svg(width="150"  height="150").circle.skill__circle
                             circle(cx='75' cy='75' r='65' fill="transparent" stroke="#ccc").circle__icon.circle__icon--under
                             circle(cx='75' cy='75' r='65' fill="transparent" stroke="url(#grad)" stroke-dashoffset="80%").circle__icon.circle__icon--above
                             defs
@@ -137,7 +146,7 @@ html(lang="en")
                     span.works__link-text Посмотреть сайт
 
       section.talks
-        section.triangles.talks-section__triangles
+        .triangles.talks-section__triangles
           svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.triangle.triangle-left
             polygon(points="0,0 1000,0 1000,100")
           svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.triangle.triangle-right
@@ -200,7 +209,7 @@ html(lang="en")
             .footer__author-name Дмитрий <br> Халдеев
             .footer__author-site Личный сайт <br> веб-разработчика
           .footer__content
-            nav.footer__menu
+            nav.menu.footer-menu
               - var items = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
               ul.menu__list
                 each item in items
@@ -214,7 +223,7 @@ html(lang="en")
                   ul.socials
                     each item in icons
                       li.social__item--footer
-                        a(href="").social__link--footer
+                        a(href="#").social__link--footer
                           .socials__item-circle
                           +icon(item, "socials__icon--footer", "#fff")
               .comments-right
