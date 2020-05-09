@@ -7,9 +7,31 @@
 
 .header__btns {
   margin: 0 20px;
+
+  @include big-tablets {
+    margin: 0 20px;
+  }
+
+  @include tablets {
+    display: none;
+  }
+
 }
 
 .header__links {
   margin-right: 120px;
   padding-bottom: 40px;
+
+  @include desktop {
+    margin-right: 60px;
+  }
+
+  @include big-tablets {
+    margin-right: 20px;
+  }
+
+  @include tablets {
+    padding: 0;
+    margin-left: auto;
+  }
 }

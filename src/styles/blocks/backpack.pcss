@@ -1,5 +1,11 @@
 .backpack {
+  width: 60vw;
+  min-width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
+  @include desktop {
+    min-width: 300px;
+  }
 }

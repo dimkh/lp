@@ -1,10 +1,26 @@
 .socials {
   display: flex;
   align-items: center;
+
+  &--noactive {
+    display: none;
+  }
+
+  @include tablets {
+    margin-right: 80px;
+  }
 }
 
 .socials__item {
   margin-right: 40px;
+
+  @include big-tablets {
+    margin-right: 20px;
+  }
+
+  @include tablets {
+    margin-right: 40px;
+  }
 
   &:last-child {
     margin-right: 0;
