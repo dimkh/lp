@@ -1,0 +1,33 @@
+//- .container.container--talks
+//-   #talks-block
+
+script(type="text/x-template")#rew-main
+  .talks__block
+    .talks__header
+      h2.section-title.talks__title Что обо мне говорят
+      // Кнопки
+      btnsComp(@slide="checkBtn")
+
+    .talks__slider(ref="sliderBlock")
+      // Слайдер
+      rewSlider("slidesInfo="slidesInfo" @slide="checkBtn")
+
+script(type="text/x-template")#rew-btns
+  .talks__arrows
+    button.talks__arrow.talks__arrow--left(type="button" v-on:click.prevent="$emit('slide', 'prev')") &lt;
+    button.talks__arrow.talks__arrow--right(type="button" v-on:click.prevent="$emit('slide', 'next')") &gt;
+
+script(type="text/x-template")#rew-slider
+  ul.talks__list(ref="moveSlider")
+    li.talks__slide(v-for="slide in slidesInfo" ref="isSlide")
+      rewSlide(:slideInfo="slide")
+
+script(type="text/x-template")#rew-slide
+  .talks__item
+    .talks__text.text {{slideInfo.text}}
+    .talks__feeder
+      .talks__feeder-photo
+        img( :src="dataUrl+slideInfo.photo" alt="").talks__photo-img
+      .talks__feeder-info
+        h3.talks__feeder-name {{slideInfo.name}}
+        .talks__feeder-position {{slideInfo.position}}
